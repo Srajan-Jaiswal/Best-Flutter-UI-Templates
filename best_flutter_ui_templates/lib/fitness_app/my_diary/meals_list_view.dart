@@ -85,9 +85,7 @@ class _MealsListViewState extends State<MealsListView>
 }
 
 class MealsView extends StatelessWidget {
-  const MealsView(
-      {Key key, this.mealsListData, this.animationController, this.animation})
-      : super(key: key);
+
 
   final MealsListData mealsListData;
   final AnimationController animationController;
