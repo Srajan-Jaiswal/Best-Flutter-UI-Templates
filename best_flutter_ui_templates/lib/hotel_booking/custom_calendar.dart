@@ -46,6 +46,19 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
     super.dispose();
   }
 
+    void setListOfDate(DateTime monthDate) {
+    dateList.clear();
+    final DateTime newDate = DateTime(monthDate.year, monthDate.month, 0);
+    int previousMothDay = 0;
+    if (newDate.weekday < 7) {
+      previousMothDay = newDate.weekday;
+      for (int i = 1; i <= previousMothDay; i++) {
+        dateList.add(newDate.subtract(Duration(days: previousMothDay - i)));
+      }
+    }
+    for (int i = 0; i < (42 - previousMothDay); i++) {
+      dateList.add(newDate.add(Duration(days: i + 1)));
+    }
   
     // if (dateList[dateList.length - 7].month != monthDate.month) {
     //   dateList.removeRange(dateList.length - 7, dateList.length);
